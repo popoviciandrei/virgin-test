@@ -1,13 +1,21 @@
-export interface FetchHolidaysParams {
+export enum HolidayFiltersKeys {
+  filterByStars = 'filterByStars',
+  filterByHotelFacilities = 'filterByHotelFacilities',
+  filterByPriceMin = 'filterByPriceMin',
+  filterByPriceMax = 'filterByPriceMax',
+}
+export interface HolidayFilters {
+  [HolidayFiltersKeys.filterByStars]?: string;
+  [HolidayFiltersKeys.filterByHotelFacilities]?: string;
+  [HolidayFiltersKeys.filterByPriceMin]?: string;
+  [HolidayFiltersKeys.filterByPriceMax]?: string;
+}
+export interface FetchHolidaysParams extends HolidayFilters {
   location: string;
   departureDate: string;
   duration: string;
   bookingType?: string;
   partyCompositions?: PartyComposition[];
-  filterByStars?: string;
-  filterByHotelFacilities?: string;
-  filterByPriceMin?: string;
-  filterByPriceMax?: string;
 }
 
 export interface PartyComposition {

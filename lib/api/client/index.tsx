@@ -1,0 +1,1 @@
+export { fetchHolidays } from './virgin';

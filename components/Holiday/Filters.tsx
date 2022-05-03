@@ -4,6 +4,8 @@ import { HolidayFilters, HolidayFiltersKeys } from '@lib/api/types';
 
 import { HolidayQuery, FiltersProps } from './Filters.type';
 
+import { hotelStars } from '@lib/search/filters';
+
 const Filters = ({
   applyFilters,
   query: { filterByStars, filterByHotelFacilities, filterByPriceMin, filterByPriceMax },
@@ -38,12 +40,12 @@ const Filters = ({
           }}
           value={filters.filterByStars || ''}
         >
+          {hotelStars.map((item, index) => (
+            <option value={item} key={index}>
+              {item}
+            </option>
+          ))}
           <option value="">Any</option>
-          <option value="Villas">Villas</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
         </select>
       </label>
       <br />

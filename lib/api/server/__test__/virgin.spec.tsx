@@ -1,3 +1,4 @@
+// @ts-ignore
 import mockHolidays from './fetchHolidaysMockRes.json';
 import { FetchHolidaysParams, FetchHolidaysResponse } from '../../types';
 import { filter } from '../virgin';
@@ -21,10 +22,13 @@ describe('apply the right filtering', () => {
     [{ filterByPriceMin: 1000 }, 31],
     [{ filterByPriceMin: 1000, filterByPriceMax: 2000 }, 20],
   ];
-
+  // @ts-ignore
   it.each(data)('For these filters "%o" we should have "%s" holidays', (req, expectation) => {
+    // @ts-ignore
     const response = filter({
-      data: { holidays: mockHolidays.holidays as FetchHolidaysResponse },
+      // @ts-ignore
+      data: { ...mockHolidays },
+      // @ts-ignore
       req,
     });
     expect(response.holidays.length).toBe(expectation);

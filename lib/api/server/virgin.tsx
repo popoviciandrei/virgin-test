@@ -1,31 +1,6 @@
 import { virginApi } from './axios';
 import { FetchHolidaysParams, FetchHolidaysResponse } from '../types';
 
-export const fetchHolidays = (req: FetchHolidaysParams): Promise<FetchHolidaysResponse> =>
-  virginApi
-    .post('/cjs-search-api/search', {
-      ...req,
-      // hardcoded some of the requet properties for proof of concepts
-      bookingType: 'hotel',
-      partyCompositions: [
-        {
-          adults: 2,
-          childAges: [],
-          infants: 0,
-        },
-      ],
-    })
-    .then(({ data }) =>
-      filter({
-        data,
-        req,
-      }),
-    )
-    .catch((e) => {
-      console.log(`E /cjs-search-api/search ${e.stack}`);
-      return { holidays: [] };
-    });
-
 export const filter = ({
   data: { holidays },
   req: { filterByStars, filterByHotelFacilities, filterByPriceMax, filterByPriceMin },
@@ -69,3 +44,28 @@ export const filter = ({
     holidays: filteredHolidays,
   };
 };
+
+export const fetchHolidays = (req: FetchHolidaysParams): Promise<FetchHolidaysResponse> =>
+  virginApi
+    .post('/cjs-search-api/search', {
+      ...req,
+      // hardcoded some of the requet properties for proof of concepts
+      bookingType: 'hotel',
+      partyCompositions: [
+        {
+          adults: 2,
+          childAges: [],
+          infants: 0,
+        },
+      ],
+    })
+    .then(({ data }) =>
+      filter({
+        data,
+        req,
+      }),
+    )
+    .catch((e) => {
+      console.log(`E /cjs-search-api/search ${e.stack}`);
+      return { holidays: [] };
+    });

@@ -16,7 +16,7 @@ describe('Holidays', () => {
     expect(container).toMatchSnapshot();
   });
   it('should render no holidays', () => {
-    const { container } = render(<Holidays holidays={} />);
+    const { container } = render(<Holidays />);
     expect(container).toMatchSnapshot();
   });
 });

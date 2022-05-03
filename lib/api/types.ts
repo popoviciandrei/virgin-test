@@ -25,7 +25,7 @@ export interface PartyComposition {
 }
 
 export interface FetchHolidaysResponse {
-  holidays: Holiday[];
+  holidays?: Holiday[];
 }
 
 export interface Holiday {

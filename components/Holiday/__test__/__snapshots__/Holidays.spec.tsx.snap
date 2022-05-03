@@ -17,11 +17,11 @@ exports[`Holidays should render the Holidays 1`] = `
   <ul>
     <div
       data-testid="HolidayTile"
-      holiday="holiday 1"
+      holiday="[object Object]"
     />
     <div
       data-testid="HolidayTile"
-      holiday="holiday 2"
+      holiday="[object Object]"
     />
   </ul>
 </div>

@@ -36,6 +36,7 @@
     "eslint-config-next": "12.1.5",
     "jest": "^26.4.0",
     "ts-jest": "^26.4.1",
+    "ts-mockery": "^1.2.0",
     "typed-scss-modules": "^6.4.0",
     "typescript": "^4.6.0"
   },

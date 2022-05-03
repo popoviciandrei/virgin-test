@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Holidays should render no holidays 1`] = `
+<div>
+  <h2>
+    No holidays found!
+  </h2>
+</div>
+`;
+
+exports[`Holidays should render the Holidays 1`] = `
+<div>
+  <h1>
+    2
+     holidays found
+  </h1>
+  <ul>
+    <div
+      data-testid="HolidayTile"
+      holiday="holiday 1"
+    />
+    <div
+      data-testid="HolidayTile"
+      holiday="holiday 2"
+    />
+  </ul>
+</div>
+`;

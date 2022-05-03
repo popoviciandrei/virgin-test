@@ -1,10 +1,10 @@
 import React from 'react';
 import { HolidayTile } from '@components/Holiday/';
 
-import { FetchHolidaysResponse } from '@lib/api/types';
+import { FetchHolidaysResponse as Props } from '@lib/api/types';
 
-const Holidays = ({ holidays }: FetchHolidaysResponse): JSX.Element => {
-  if (!holidays.length) {
+const Holidays = ({ holidays }: Props): JSX.Element => {
+  if (!holidays?.length) {
     return <h2>No holidays found!</h2>;
   }
 

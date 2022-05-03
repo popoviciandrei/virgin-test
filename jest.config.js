@@ -1,5 +1,6 @@
 // Sync object
-const { defaults } = require('jest-config');
+const { pathsToModuleNameMapper } = require('ts-jest/utils');
+const { compilerOptions } = require('./tsconfig.json');
 
 /** @type {import('@jest/types').Config.InitialOptions} */
 const config = {
@@ -12,6 +13,9 @@ const config = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testPathIgnorePatterns: ['node_modules', 'public', 'coverage'],
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
+  moduleNameMapper: {
+    ...pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>' }),
+  },
   globals: {
     'ts-jest': {
       tsconfig: './tsconfig.test.json',
